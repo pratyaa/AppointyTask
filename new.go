@@ -19,16 +19,16 @@ type Person struct {
 	id                  int                `json:"id,omitempty"`
 	name               string              `json:"name,omitempty" `
 	dob                string              `json:"dob,omitempty" `
-	phoneNumber		   string			   `json:"phoneNumber,omitempty" `
-    email              string              `json:"email,omitempty" `
-	CreationTimestamp  time.Time           `json:"timestamp,omitempty" `
+	phoneNumber        string              `json:"phoneNumber,omitempty" `
+        email              string              `json:"email,omitempty" `
+	creationTimestamp  time.Time           `json:"timestamp,omitempty" `
 	
 }
 
 type Contact struct{
 	id1      int       `json:"id1,omitempty"`  
 	id2      int       `json:"id2,omitempty"`
-    contact  string    `json:"contact,omitempty"`
+      contact  string    `json:"contact,omitempty"`
 }
 
 func createUserEndpoint(response http.ResponseWriter, request *http.Request) {
@@ -75,9 +75,9 @@ func createContact(response http.ResponseWriter, request *http.Request) {
 
 func handleRequests() {
     http.HandleFunc("/users", createUserEndpoint)
-	http.HandleFunc("/users/<id>", getUserEndpoint)
-	http.HandleFunc("/contact", createContact)
-//	http.HandleFunc("/contacts?user=<user id>&infection_timestamp=<timestamp>")
+    http.HandleFunc("/users/<id>", getUserEndpoint)
+    http.HandleFunc("/contact", createContact)
+//  http.HandleFunc("/contacts?user=<user id>&infection_timestamp=<timestamp>")
 
    log.Fatal(http.ListenAndServe(":10000", nil))
 }
